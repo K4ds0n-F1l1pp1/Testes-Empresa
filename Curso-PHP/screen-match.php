@@ -1,41 +1,58 @@
 <?php
 
-echo"Bem vindo(a) ao Screen Match!\n"; // \n Pula uma linha e o \t faz a função do tab.
+function exibirMensagemLancamento($ano): void {
+    if ($ano > 2022) {
+        echo "Esse filme é um lançamento\n"; // \n pula uma linha e \t age como um tab na exibição.
+    } elseif($ano > 2020 && $ano <= 2022) {
+        echo "Esse filme ainda é novo\n";
+    } else {
+        echo "Esse filme não é um lançamento\n";
+    }
+}
+
+function incluidoNoPlanoPrime ($planoPrime, $anoLancamento) {
+    return $planoPrime || $anoLancamento < 2020; // || quer dizer "ou" e && quer dizer "e".
+}
+
+echo "Bem-vindo(a) ao screen match!\n";
 
 $nomeFilme = "Top Gun - Maverick";
-$anoFilme = $argv[1] ?? 2022; /* O $argv serve para armazenar dados, porém ele não sabe qual armazenar e armazena tudo.
-Mas tem uma forma de lidar com isso, basta especificar o indíce que você quer armazenar ou pegar para mostar.
-O símbolo ?? representa que, caso o valor do $argv[1] fique vazio, oque vem a direita será usado (no caso 2022). */
-$somaNota = 9 + 6 + 7.6 + 8.3 + 5.1;
-$notaFilme = $somaNota / 5;
-$planoPrime =$argv[2] ?? 2;
 
-// $incluidoNoPlano = $planoPrime || $anoFilme < 2020;
+$anoLancamento = 2022;
 
-echo "Nome do filme: " .$nomeFilme;
-echo "\tLançamento: " .$anoFilme. "\n";
-echo "Nota do filme: $notaFilme\n"; // Quando se usa aspas duplas, o php lê oque está dentro delas, seja varável ou texto. Porém, ao usar aspas simples, ele não diferencia oque está dentro, tudo vira texto.
-if ($planoPrime == 1) {
-    echo "Tipo do plano prime: " .$planoPrime. " . Ele incluí esse filme.\n";
-} else {
-    echo "Esse tipo de plano não incluí esse filme. \n";
+$quantidadeDeNotas = $argc - 1; // "$argc" armazena a quantidade de itens descritos, por exemplo [1,2,3] => o argc irá mostrar 3 elementos.
+$notas = []; // Essa é a array.
+
+for ($contador = 1; $contador < $argc; $contador++) {
+    $notas[] = (float) $argv[$contador];
 }
 
-//echo 'texto...' . "\n"; Pode-se fazer a concatenação entre as aspas.
+$notaFilme = array_sum($notas) / $quantidadeDeNotas; // array_sum soma os intens dentro da array.
+$planoPrime = true;
 
-if ($anoFilme >= 2023 && $anoFilme <2025) {
-    echo "O filme é atual.\n";
-} else if ($anoFilme < 2023) {
-    echo "O filme é antigo.\n";
-} else {
-    echo "O filme não foi lançado ainda.\n";
-}
+$incluidoNoPlano = incluidoNoPlanoPrime(planoPrime: $planoPrime, anoLancamento: $anoLancamento);
 
-if ($notaFilme >= 7 && $notaFilme <= 8) {
-    echo "O filme é recomendado e levemente bem avaliado.\n";
-} else if ($notaFilme > 8 && $notaFilme <=10) {
-    echo "O filme é muito recomendado e muito bem avaliado.\n";
-} else {
-    echo "O filme não é recomendado.";
-}
+echo "Nome do filme: " . $nomeFilme . "\n";
+echo "Nota do filme: $notaFilme\n";
+echo "Ano de lançamento: $anoLancamento\n";
 
+exibirMensagemLancamento(ano: $anoLancamento);
+
+$genero = match ($nomeFilme) { // A "match" é uma forma de buscar algum elemento e adicioná-lo em alguma característica.
+    "Top Gun - Maverick" => "ação",
+    "Thor: Ragnarok" => "super-herói",
+    "Se beber não case" => "comédia",
+    default => "gênero desconhecido",
+};
+
+echo "O gênero do filme é: $genero\n";
+
+$filme = [
+    "nome" => "Thor: Ragnarok",
+    "ano" => 2021,
+    "nota" => 7.8,
+    "genero" => "super-herói",
+];
+
+
+echo $filme["ano"];
