@@ -1,18 +1,6 @@
 <?php
 
-function exibirMensagemLancamento($ano): void {
-    if ($ano > 2022) {
-        echo "Esse filme é um lançamento\n"; // \n pula uma linha e \t age como um tab na exibição.
-    } elseif($ano > 2020 && $ano <= 2022) {
-        echo "Esse filme ainda é novo\n";
-    } else {
-        echo "Esse filme não é um lançamento\n";
-    }
-}
-
-function incluidoNoPlanoPrime ($planoPrime, $anoLancamento) {
-    return $planoPrime || $anoLancamento < 2020; // || quer dizer "ou" e && quer dizer "e".
-}
+require "funcoes.php"; // "__DIR__" quer dizer que ele trás o diretório atual.
 
 echo "Bem-vindo(a) ao screen match!\n";
 
@@ -56,3 +44,20 @@ $filme = [
 
 
 echo $filme["ano"];
+
+var_dump($notas);
+sort($notas);
+var_dump($notas);
+$menorNota = min($notas);
+
+var_dump($filme["nome"]);
+$posicaoDoisPontos = strpos($filme["nome"],":");
+var_dump($posicaoDoisPontos);
+
+var_dump(substr($filme["nome"], 0, $posicaoDoisPontos));
+
+// echo json_encode(value: $filme);
+// var_dump (json_decode(json: '{"nome":"Thor: Ragnarok","ano":2021, "nota":7.8, "genero":"Super-her\u00f3i"}', associative: true));
+
+$filmeComoStringJson = json_encode($filme);
+file_put_contents(__DIR__ . '/filme.json', $filmeComoStringJson);
