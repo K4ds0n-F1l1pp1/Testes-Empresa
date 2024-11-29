@@ -13,3 +13,12 @@ function exibirMensagemLancamento(int $ano): void { // O "void" quer dizer que e
 function incluidoNoPlanoPrime (bool $planoPrime, int $anoLancamento): bool { // Ao usar ":bool", eu peço um returno em boolean.
     return $planoPrime || $anoLancamento < 2020; // || quer dizer "ou" e && quer dizer "e".
 };
+
+function criaFilme ( string $nome, int $anoLancamento, float $nota, string $genero): array {
+    return [
+        'nome' => $nome,
+        'ano' => $anoLancamento,
+        'nota' => $nota,
+        'genero' => $genero,
+    ];
+}

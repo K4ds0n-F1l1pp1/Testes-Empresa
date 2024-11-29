@@ -1,6 +1,6 @@
 <?php
 
-require "funcoes.php"; // "__DIR__" quer dizer que ele trás o diretório atual.
+require "./source/funcoes.php";   // "__DIR__" quer dizer que ele trás o diretório atual.
 
 echo "Bem-vindo(a) ao screen match!\n";
 
@@ -35,13 +35,7 @@ $genero = match ($nomeFilme) { // A "match" é uma forma de buscar algum element
 
 echo "O gênero do filme é: $genero\n";
 
-$filme = [
-    "nome" => "Thor: Ragnarok",
-    "ano" => 2021,
-    "nota" => 7.8,
-    "genero" => "super-herói",
-];
-
+$filme = criaFilme (nome: "Thor: Ragnarok", anoLancamento: 2021, nota: 7.8, genero: "Super-herói");
 
 echo $filme["ano"];
 
