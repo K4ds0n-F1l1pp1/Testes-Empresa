@@ -1,10 +1,9 @@
-<?php 
+<?php
 
 enum Genero {
-    case Açao;
+    case Acao;
     case Comedia;
     case Terror;
     case SuperHeroi;
     case Drama;
-    case Suspense;
 }

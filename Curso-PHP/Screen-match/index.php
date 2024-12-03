@@ -1,22 +1,24 @@
-<?php 
+<?php
 
-require './modelos/Titulo.php';
-require './modelos/Genero.php';
-require './modelos/filme.php';
-require './modelos/Serie.php';
-require './source/Calculos/CalculadoraDeMaratonas.php';
+require  "./source/modelos/Genero.php";
+require  "./source/modelos/Titulo.php";
+require  "./source/modelos/Serie.php";
+require  "./source/modelos/filme.php";
+require  "./source/Calculos/CalculadoraDeMaratons.php";
 
-echo "Bem vindo(a) ao Screen Match.";
+echo "Bem-vindo(a) ao ScreenMatch\n";
 
-$filme = new Filme(nome: 'Dia ruim para morrer', anoLancamento: 2018, genero: Genero::Açao, duracaoEmMinutos: 180);
-/* $filme -> nome = 'Dia ruim para morrer.';
-$filme -> anoLancamento = 2018;
-$filme -> genero = 'Ação'; */
+$filme = new Filme(
+    'Thor - Ragnarok',
+    2021,
+    Genero::SuperHeroi,
+    180,
+);
 
-$filme -> avalia (10);
-$filme -> avalia (6.7);
-$filme -> avalia (7);
-$filme -> avalia (7.9);
+$filme->avalia(10);
+$filme->avalia(10);
+$filme->avalia(5);
+$filme->avalia(5);
 
 var_dump($filme);
 
@@ -24,21 +26,17 @@ echo $filme->media() . "\n";
 
 echo $filme->anoLancamento . "\n";
 
+$serie = new Serie('Lost', 2007, Genero::Drama, 10, 20, 30);
 
-$serie = new Serie(nome: 'Chernobyl', anoLancamento: 2022, genero: Genero::Suspense, 
-numeroTemporadas: 1, numeroEpisodios: 8, minutosPorEpisodio: 45);
+echo $serie->anoLancamento . "\n";
 
-$serie->avalia(9);
-$serie->avalia(8.7);
-$serie->avalia(10);
+$serie->avalia(8);
 
 echo $serie->media() . "\n";
 
-var_dump($serie);
-
-$calculadora = new CalculadoraDeMaratona ();
+$calculadora = new CalculadoraDeMaratona();
 $calculadora->inclui($filme);
 $calculadora->inclui($serie);
 $duracao = $calculadora->duracao();
 
-echo "Você precisa de $duracao minutos para maratonar essa lista.\n"; 
+echo "Para essa maratona, você precisa de $duracao minutos";
