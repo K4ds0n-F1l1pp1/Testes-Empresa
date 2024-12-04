@@ -1,6 +1,6 @@
 <?php
 
-require './source/Autoload.php';
+require "autoload.php";
 
 use ScreenMatch\Modelo\{
     Filme, Episodio, Serie, Genero
