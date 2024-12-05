@@ -3,7 +3,7 @@
 require "autoload.php";
 
 use ScreenMatch\Modelo\{
-    Filme, Episodio, Serie, Genero
+    filme, Episodio, Serie, Genero
 };
 use ScreenMatch\Calculos\{
     CalculadoraDeMaratona, ConversorNotaEstrela
@@ -46,5 +46,5 @@ $duracao = $calculadora->duracao();
 echo "Para essa maratona, você precisa de $duracao minutos\n";
 
 $conversor = new ConversorNotaEstrela();
-echo $conversor->converte($serie) . "\n";
-echo $conversor->converte($filme) . "\n";
+echo $conversor->converte(avaliavel: $serie) . "\n";
+echo $conversor->converte(avaliavel: $filme) . "\n";

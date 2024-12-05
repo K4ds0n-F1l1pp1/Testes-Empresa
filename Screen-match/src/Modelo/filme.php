@@ -1,7 +1,7 @@
 <?php
 
 namespace ScreenMatch\Modelo;
-
+var_dump($filme);
 class Filme extends Titulo
 {
     public function __construct(
@@ -13,7 +13,7 @@ class Filme extends Titulo
         parent::__construct($nome, $anoLancamento, $genero);
     }
 
-    // #[Override]
+    #[\Override]
     public function duracaoEmMinutos(): int
     {
         return $this->duracaoEmMinutos;
