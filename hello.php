@@ -41,4 +41,5 @@ $B = floatval(trim(fgets(STDIN)));
 $C = floatval(trim(fgets(STDIN)));
 
 printf("TRIANGULO: %.3f",$s1 = $A*$C/2);
+
 ?>
