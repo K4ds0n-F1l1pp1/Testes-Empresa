@@ -40,6 +40,16 @@ $A = floatval(trim(fgets(STDIN)));
 $B = floatval(trim(fgets(STDIN)));
 $C = floatval(trim(fgets(STDIN)));
 
-printf("TRIANGULO: %.3f",$s1 = $A*$C/2);
+printf("TRIANGULO: %.3f\n",$s1 = $A*$C/2);
+
+// ----------------------------------------------------------------------
+
+echo"Digite um número: ";
+$A = (int) fgets(STDIN);
+echo"Digite outro número: ";
+$B = (int) fgets(STDIN);
+
+printf("Soma deu: \n", $sum1 = $A + $B,);
+
 
 ?>
