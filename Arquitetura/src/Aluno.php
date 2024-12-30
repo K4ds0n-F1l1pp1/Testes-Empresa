@@ -4,7 +4,7 @@ namespace TESTESEPRESA\Arquitetura;
 
 class Aluno
 {
-    private CPF $cpf;
+    private Cpf $cpf;
     private string $nome;
     private Email $email;
     private array $telefones = [];

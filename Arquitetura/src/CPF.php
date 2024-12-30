@@ -2,7 +2,7 @@
 
 namespace Alura\Arquitetura;
 
-class CPF
+class Cpf
 {
     private string $numero;
 
