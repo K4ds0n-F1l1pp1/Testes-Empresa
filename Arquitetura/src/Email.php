@@ -1,6 +1,6 @@
-<php 
+<?php 
 
-namespace Alura\Arquitetura;
+namespace TESTESEPRESA\Arquitetura;
 
 class Email
 {
@@ -8,9 +8,15 @@ class Email
 
     public function __construct(string $endereco)
     {
-        if () {
+        if (!filter_var($endereco, FILTER_VALIDATE_EMAIL)) {
             throw new \InvalidArgumentException("Endereço de email inválido.");
         }
         $this->endereco = $endereco;
     }
+
+    public function toString(): string
+    {
+        return $this->endereco;
+    }
 }
+?>
